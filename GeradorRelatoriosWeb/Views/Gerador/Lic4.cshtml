@@ -1,0 +1,123 @@
+﻿@model GeradorRelatoriosWeb.Models.Filtros.FiltroPNCV
+
+@{
+    ViewData["Title"] = "Lic 4";
+    Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+}
+<script src="~/js/Gerador/Lic4.js"></script>
+<h1>Relatório PNCV - LIC 4 - Por Equipamento</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group panel">
+            <div class="panel-heading"><h4>Filtros</h4></div>
+            <div class="panel-body">
+                <form asp-action="ListarLic4">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DataInicio" class="control-label"></label>
+                                <input asp-for="DataInicio" id="txtDataInicio" class="form-control"min="2000-01-01" max="2020-01-01" />
+                                <span asp-validation-for="DataInicio" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DataFim" class="control-label"></label>
+                                <input asp-for="DataFim" id="txtDataFinal" class="form-control" min="2000-01-01" max="2020-01-01" />
+                                <span asp-validation-for="DataFim" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="TipoVeiculo" class="control-label"></label>
+                                <select asp-for="TipoVeiculo" class="form-control">
+                                    <option value="0">Não especificado</option>
+                                    <option value="1">Motos</option>
+                                    <option value="2">Carros e Veículos Pequenos</option>
+                                    <option value="3">Caminhões Leves e Ônibus</option>
+                                    <option value="4">Caminhões Pesados e Especiais</option>
+                                    <option value="5">Todos</option>
+                                </select>
+                                <span asp-validation-for="TipoVeiculo" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Equipamento" class="control-label"></label>
+                                <input asp-for="Equipamento" class="form-control" required oninvalid="this.setCustomValidity('Código do equipamento é obrigatório')" oninput="this.setCustomValidity('')" />
+                                <span asp-validation-for="Equipamento" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="submit" id="btnVisualizar" value="Visualizar" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <div class="form-group">
+                                <input type="submit" id="btnExportar" asp-action="ExportarLic4" value="Exportar XLS" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="alert-danger text-center">Serão exibidos 100 registros para validação dos dados. Os dados finais serão exportados no arquivo excel.</div>
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoPNCVs.FirstOrDefault().Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoPNCVs.FirstOrDefault().Horario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoPNCVs.FirstOrDefault().CodigoEquipamentoDnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoPNCVs.FirstOrDefault().LocalSentidoRodovia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoPNCVs.FirstOrDefault().Classe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoPNCVs.FirstOrDefault().Velocidade)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.RetornoPNCVs)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Horario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodigoEquipamentoDnit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocalSentidoRodovia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Classe)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Velocidade)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

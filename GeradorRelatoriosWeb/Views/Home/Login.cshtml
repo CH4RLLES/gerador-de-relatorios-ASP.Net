@@ -1,0 +1,39 @@
+﻿@model GeradorRelatoriosWeb.Dominio.Entidades.Sistema.Usuario
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        @if (TempData["LoginUsuarioFalhou"] != null)
+        {
+            <p class="alert alert-danger">@TempData["LoginUsuarioFalhou"]</p>
+        }
+        <div class="form-group panel">
+            <div class="panel-heading"><h4>Login</h4></div>
+            <div class="panel-body">
+                <form asp-controller="Login" asp-action="Login">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="CPF" class="control-label"></label>
+                        <input asp-for="CPF" class="form-control" required oninvalid="this.setCustomValidity('CPF é obrigatório')" oninput="this.setCustomValidity('')" />
+                        <span asp-validation-for="CPF" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Senha" class="control-label"></label>
+                        <input asp-for="Senha" class="form-control" required oninvalid="this.setCustomValidity('Senha é obrigatório')" oninput="this.setCustomValidity('')" />
+                        <span asp-validation-for="Senha" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Entrar" class="btn btn-default btn-primary" />
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+

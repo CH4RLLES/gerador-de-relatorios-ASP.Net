@@ -1,0 +1,38 @@
+﻿@model GeradorRelatoriosWeb.Models.Filtros.FiltroAlterarSenha
+@{
+    ViewData["Title"] = "Alterar Senha";
+    Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+}
+<script src="~/js/Gerador/AlterarSenha.js"></script>
+<h1>Alterar Senha</h1>
+<div class="row">
+    <div class="col-md-4">
+        @if (TempData["Messagem"] != null)
+        {
+            <p class="alert alert-info">@TempData["Messagem"]</p>
+        }
+            <form id="form" asp-action="AlterarSenha">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="SenhaAtual" class="control-label"></label>
+                    <input asp-for="SenhaAtual" id="txtSenhaAtual" class="form-control" oninput="this.setCustomValidity('')" />
+                    <span asp-validation-for="SenhaAtual" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NovaSenha" class="control-label"></label>
+                    <input asp-for="NovaSenha" id="txtSenha" class="form-control" required oninvalid="this.setCustomValidity('Campo obrigatório.')" oninput="this.setCustomValidity('')" />
+                    <span asp-validation-for="NovaSenha" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmarSenha" class="control-label"></label>
+                    <input asp-for="ConfirmarSenha" id="txtConfirmarSenha" class="form-control" oninput="this.setCustomValidity('')" />
+                    <span asp-validation-for="ConfirmarSenha" class="text-danger"></span>
+                </div>
+                <input id="txtId" type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <input type="submit" value="Alterar" id="btnAlterar" class="btn btn-primary" />
+                </div>
+            </form>
+    </div>
+</div>

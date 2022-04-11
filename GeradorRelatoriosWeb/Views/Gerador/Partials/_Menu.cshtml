@@ -1,0 +1,62 @@
+﻿@model GeradorRelatoriosWeb.Dominio.Entidades.Sistema.Usuario
+@{
+    var itens = Model.Perfil.Paginas.Where(a => !a.Pagina.Desativado).OrderByDescending(a => a.Pagina.NomeMenu).ToList();
+}
+<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+    <ul class="navbar-nav " style="text-align:right !important">
+        @{
+            if (itens.Count() > 7)
+            {
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Relatórios
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @foreach (var item in itens.OrderBy(a => a.Pagina.NomeMenu))
+                        {
+                            var controller = item.Pagina.Controller;
+                            var view = item.Pagina.View;
+                            var nome = itens.Count() > 7 ? item.Pagina.NomeMenu : "|| " + item.Pagina.NomeMenu;
+
+                            if (nome != "Alterar Senha" && nome != "Administração")
+                            {
+                                <a class="dropdown-item " asp-area="" asp-controller="@controller" asp-action="@view">@nome</a>
+                            }
+                        }
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " asp-area="" asp-controller="Gerador" asp-action="AlterarSenha">Alterar Senha</a>
+                </li>
+                
+                if (itens.Count(a => a.Pagina.NomeMenu == "Administração") > 0)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link " asp-area="" asp-controller="Admin" asp-action="CadUsuario">Administração</a>
+                    </li>
+                }
+                
+                <li class="nav-item">
+                    <a class="nav-link btn-sair" asp-area="" asp-controller="Login" asp-action="Logout">Sair</a>
+                </li>
+            }
+            else
+            {
+                @foreach (var item in itens)
+                {
+                    var controller = item.Pagina.Controller;
+                    var view = item.Pagina.View;
+                    var nome = itens.Count() > 7 ? item.Pagina.NomeMenu : "|| " + item.Pagina.NomeMenu;
+
+                    <li class="nav-item">
+                        <a class="nav-link " asp-area="" asp-controller="@controller" asp-action="@view">@nome</a>
+                    </li>
+                }
+
+                <li class="nav-item">
+                    <a class="nav-link btn-sair" asp-area="" asp-controller="Login" asp-action="Logout">Sair</a>
+                </li>
+            }
+        }
+    </ul>
+</div>

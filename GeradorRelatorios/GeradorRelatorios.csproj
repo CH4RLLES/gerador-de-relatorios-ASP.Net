@@ -1,0 +1,779 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.EntityFrameworkCore.Design.2.2.3\build\net461\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('..\packages\Microsoft.EntityFrameworkCore.Design.2.2.3\build\net461\Microsoft.EntityFrameworkCore.Design.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0585D725-1FD1-4D54-8E4B-6EC1FBB53E12}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GeradorRelatorios</RootNamespace>
+    <AssemblyName>GeradorRelatorios</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\publishs\GeradorRelatorios\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>35</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>1D0EB7D2A00DEFF7D9F1E3828A7A0A4735D8DF7A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>GeradorRelatorios_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GeoAPI, Version=1.7.5.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
+      <HintPath>..\packages\GeoAPI.Core.1.7.5\lib\net45\GeoAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Design, Version=2.2.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Design.2.2.3\lib\net461\Microsoft.EntityFrameworkCore.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Relational.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.SqlServer, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.SqlServer.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.2.2.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.WinForms.12.0.2402.15\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite, Version=1.15.1.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.Core.1.15.1\lib\net45\NetTopologySuite.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.SqlServerBytes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.IO.SqlServerBytes.1.15.0\lib\netstandard2.0\NetTopologySuite.IO.SqlServerBytes.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.5.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.6.1\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Interactive.Async, Version=3.2.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Interactive.Async.3.2.0\lib\net46\System.Interactive.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BD_PNCV_LIC_4\DatabaseLog.cs" />
+    <Compile Include="BD_PNCV_LIC_4\PNCV_LIC4.cs" />
+    <Compile Include="BD_PNCV_LIC_4\tblRegistroClasseVeiculo.cs" />
+    <Compile Include="BD_PNCV_LIC_4\tblRegistroContagem.cs" />
+    <Compile Include="BD_PNCV_LIC_4\tblRegistroInfracao.cs" />
+    <Compile Include="BD_PNCV_LIC_4\tblRegistroInfracaoImagem.cs" />
+    <Compile Include="BD_PNCV_LIC_4\tblRegistroInfracaoImagemMotivoReinicioSequencia.cs" />
+    <Compile Include="BD_PNCV_LIC_4\tblRegistroInfracaoImagemTipo.cs" />
+    <Compile Include="BD_PNCV_LIC_4\tblRegistroInfracaoVeiculoTipo.cs" />
+    <Compile Include="BD_PNCV_LIC_4\tblRegistroTesteEquipamento.cs" />
+    <Compile Include="BD_PNCV_LIC_4\tblRemessaDados.cs" />
+    <Compile Include="BD_PNCV_LIC_4\tblRemessaDadosErro.cs" />
+    <Compile Include="BD_PNCV_LIC_4\tblRemessaDadosEvento.cs" />
+    <Compile Include="BD_PNCV_LIC_4\tblRemessaDadosIdentificadorErro.cs" />
+    <Compile Include="BD_PNCV_LIC_4\tblRemessaDadosSituacao.cs" />
+    <Compile Include="BD_PNCV_LIC_4\tblRemessaDadosSituacaoArquivoRetorno.cs" />
+    <Compile Include="BD_PNCV_LIC_4\tblRemessaDadosTipo.cs" />
+    <Compile Include="BD_RENAVAM\RENAVAMContext.cs" />
+    <Compile Include="BD_RENAVAM\tblRENAVAMEnquadramento.cs" />
+    <Compile Include="BD_RENAVAM\tblRENAVAMMarcaModeloVeiculo.cs" />
+    <Compile Include="BD_RENAVAM\tblRENAVAMMunicipio.cs" />
+    <Compile Include="BD_RENAVAM\tblRENAVAMPais.cs" />
+    <Compile Include="BD_RENAVAM\tblRENAVAMTipoVeiculo.cs" />
+    <Compile Include="BD_RENAVAM\tblRENAVAMVeiculoCarroceria.cs" />
+    <Compile Include="BD_RENAVAM\tblRENAVAMVeiculoCategoria.cs" />
+    <Compile Include="BD_RENAVAM\tblRENAVAMVeiculoCor.cs" />
+    <Compile Include="BD_RENAVAM\tblRENAVAMVeiculoEspecie.cs" />
+    <Compile Include="BD_SIOR\AuxCorrecaoSituacaoDebitoNpreplublicada.cs" />
+    <Compile Include="BD_SIOR\AuxEditalNaCorrecaoInfracaoOrigemSagi.cs" />
+    <Compile Include="BD_SIOR\AuxEditalNpCorrecaoInfracaoOrigemSagi.cs" />
+    <Compile Include="BD_SIOR\AuxExpedicaoCorrecaoDataVencimentoControle1.cs" />
+    <Compile Include="BD_SIOR\AuxExpedicaoCorrecaoDataVencimentoControle2DataAtualDebito.cs" />
+    <Compile Include="BD_SIOR\AuxFiciCorrecaoDataConferencia.cs" />
+    <Compile Include="BD_SIOR\AuxInfracaoPrazoVencimentoNpCorrecao.cs" />
+    <Compile Include="BD_SIOR\AuxInfracaoPreAutuacaoUpdateRegistroInfracao.cs" />
+    <Compile Include="BD_SIOR\AuxMigracaoFinanceiro.cs" />
+    <Compile Include="BD_SIOR\AuxProprietarioCorrecaoCnpj.cs" />
+    <Compile Include="BD_SIOR\AuxProprietarioCorrecaoCpfcnpj.cs" />
+    <Compile Include="BD_SIOR\AuxSinpevMigracaoDocumentoDigitalizado.cs" />
+    <Compile Include="BD_SIOR\AuxUpdatePreAutuacaoRegistroInfracao.cs" />
+    <Compile Include="BD_SIOR\BD_SIORContext.cs" />
+    <Compile Include="BD_SIOR\DatabaseLog.cs" />
+    <Compile Include="DB\BD_SIOR_PNCV_168_2016Context.cs" />
+    <Compile Include="DB\DatabaseLog.cs" />
+    <Compile Include="DB_SINPEV\BD_SINPEVContext.cs" />
+    <Compile Include="DB_SINPEV\tblDadosSINPEV.cs" />
+    <Compile Include="DTO\RetornoDTO.cs" />
+    <Compile Include="BD_SIOR\ElmahError.cs" />
+    <Compile Include="DTO\SalvarXls.cs" />
+    <Compile Include="frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DB\TblRegistroClasseVeiculo.cs" />
+    <Compile Include="DB\TblRegistroContagem.cs" />
+    <Compile Include="DB\TblRegistroInfracao.cs" />
+    <Compile Include="DB\TblRegistroInfracaoImagem.cs" />
+    <Compile Include="DB\TblRegistroInfracaoImagemMotivoReinicioSequencia.cs" />
+    <Compile Include="DB\TblRegistroInfracaoImagemTipo.cs" />
+    <Compile Include="DB\TblRegistroInfracaoVeiculoTipo.cs" />
+    <Compile Include="DB\TblRegistroTesteEquipamento.cs" />
+    <Compile Include="DB\TblRemessaDados.cs" />
+    <Compile Include="DB\TblRemessaDadosErro.cs" />
+    <Compile Include="DB\TblRemessaDadosEvento.cs" />
+    <Compile Include="DB\TblRemessaDadosIdentificadorErro.cs" />
+    <Compile Include="DB\TblRemessaDadosSituacao.cs" />
+    <Compile Include="DB\TblRemessaDadosSituacaoArquivoRetorno.cs" />
+    <Compile Include="DB\TblRemessaDadosTipo.cs" />
+    <Compile Include="BD_SIOR\TblBaseArquivoTipo.cs" />
+    <Compile Include="BD_SIOR\TblBaseCalendario.cs" />
+    <Compile Include="BD_SIOR\TblBaseCorreiosCartaoPostagem.cs" />
+    <Compile Include="BD_SIOR\TblBaseCorreiosCodigoBaixa.cs" />
+    <Compile Include="BD_SIOR\TblBaseCorreiosMotivoDevolucao.cs" />
+    <Compile Include="BD_SIOR\TblBaseCorreiosPlanoTriagem.cs" />
+    <Compile Include="BD_SIOR\TblBaseCorreiosPlanoTriagemFaixaCep.cs" />
+    <Compile Include="BD_SIOR\TblBaseDiaSemana.cs" />
+    <Compile Include="BD_SIOR\TblBaseDocumentoUfscdnit.cs" />
+    <Compile Include="BD_SIOR\TblBaseDocumentoUfscdnittipo.cs" />
+    <Compile Include="BD_SIOR\TblBaseFebrabanMotivoOcorrencia.cs" />
+    <Compile Include="BD_SIOR\TblBaseFebrabanMotivoOcorrenciaDominio.cs" />
+    <Compile Include="BD_SIOR\TblBaseFebrabanMovimentoRemessa.cs" />
+    <Compile Include="BD_SIOR\TblBaseFebrabanMovimentoRetorno.cs" />
+    <Compile Include="BD_SIOR\TblBaseGruCodigoRecolhimentoTes.cs" />
+    <Compile Include="BD_SIOR\TblBaseGruComRegistroNossoNumero.cs" />
+    <Compile Include="BD_SIOR\TblBaseHora.cs" />
+    <Compile Include="BD_SIOR\TblBaseHoraFracao.cs" />
+    <Compile Include="BD_SIOR\TblBaseMes.cs" />
+    <Compile Include="BD_SIOR\TblBaseMunicipio.cs" />
+    <Compile Include="BD_SIOR\TblBaseNup.cs" />
+    <Compile Include="BD_SIOR\TblBasePais.cs" />
+    <Compile Include="BD_SIOR\TblBaseRodovia.cs" />
+    <Compile Include="BD_SIOR\TblBaseRodoviaUf.cs" />
+    <Compile Include="BD_SIOR\TblBaseSelic.cs" />
+    <Compile Include="BD_SIOR\TblBaseUf.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalAnteprojeto.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalContrato.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalContratoTrecho.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalContratoTrechoContratado.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalContratoTrechoRemovido.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalContratoTrechoRemovidoMotivo.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalContratoTrechoSuspenso.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalContratoTrechoSuspensoMotivo.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalDocumento.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalDocumentoTipo.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalEdital.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalEmpresa.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalEngenheiroResponsavel.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalImplantacaoPlanejamento.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalImplantacaoPlanejamentoEvento.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalImplantacaoPlanejamentoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalImplantacaoProjetoCronograma.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalImplantacaoTrechoCronograma.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalImplantacaoTrechoQuantitativo.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalParametroPrazo.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalProjetoBasicoEntrega.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalProjetoBasicoEntregaTrecho.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalProjetoBasicoEntregaTrechoNaoAceite.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalProjetoEntregaTrechoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalProjetoExecutivoEntrega.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalProjetoExecutivoEntregaTrecho.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalProjetoExecutivoEntregaTrechoNaoAceite.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalServicoFamilia.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalServicoItem.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalServicoTipo.cs" />
+    <Compile Include="BD_SIOR\TblBrlegalServicoUnidadeMedida.cs" />
+    <Compile Include="BD_SIOR\TblCobrancaInfracao.cs" />
+    <Compile Include="BD_SIOR\TblCobrancaInfracaoArquivo.cs" />
+    <Compile Include="BD_SIOR\TblCobrancaInfracaoDevedorCondicao.cs" />
+    <Compile Include="BD_SIOR\TblCobrancaInfracaoDevedorNumeroInscricaoTipo.cs" />
+    <Compile Include="BD_SIOR\TblCobrancaInfracaoDevedorSituacaoCadastral.cs" />
+    <Compile Include="BD_SIOR\TblCobrancaInfracaoEvento.cs" />
+    <Compile Include="BD_SIOR\TblCobrancaInfracaoFase.cs" />
+    <Compile Include="BD_SIOR\TblCobrancaInfracaoIndicadorResultadoAnalise.cs" />
+    <Compile Include="BD_SIOR\TblCobrancaInfracaoIndicadorResultadoConsistencia.cs" />
+    <Compile Include="BD_SIOR\TblCobrancaInfracaoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoArquivoAnexo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoCausaCancelamento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoCondutor.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDa.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDaalegacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDaalegacaoEnquadramento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDaarquivo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDacausaNaoConhecer.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDaevento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDafase.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDafundamentacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDafundamentacaoEnquadramento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDaindicadorAdmissibilidade.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDaindicadorMerito.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDaindicadorRecorrente.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDaindicadorResultado.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDanaoConhecer.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDaorigem.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDasituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDesvinculacaoMulta.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDesvinculacaoMultaArquivo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDesvinculacaoMultaEvento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDesvinculacaoMultaOrigem.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoDesvinculacaoMultaSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoEfeitoSuspensivo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoEfeitoSuspensivoArquivo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoEfeitoSuspensivoEvento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoEfeitoSuspensivoFase.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoEfeitoSuspensivoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoEfeitoSuspensivoTipo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoEmbarcador.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoEnquadramento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoEnquadramentoCalculoTipo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoEnquadramentoEvento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoEnquadramentoTipoInfracional.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoEnquadramentoValor.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoEnquadramentoVelocidade.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoEquipamentoAfericaoTipo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoEvento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFase.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFaseGrupo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroArquivoCobrancaRemessa.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroArquivoCobrancaRemessaSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroArquivoCobrancaRemessaTipoEnvio.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroArquivoCobrancaRemessaTitulo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroArquivoCobrancaRemessaTituloSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroArquivoCobrancaRetorno.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroArquivoCobrancaRetornoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroArquivoCobrancaRetornoTitulo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroArquivoCobrancaRetornoTituloSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroDebito.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroDebitoEvento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroDebitoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroDetran.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroGru.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroGrucadastroTituloBanco.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroGrusituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroGrutipoRegistro.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroGrutipoValor.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroPagamento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroPagamentoBaixaManual.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroPagamentoBaixaManualArquivo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroPagamentoBaixaManualEvento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroPagamentoBaixaManualSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroPagamentoDetran.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroPagamentoGru.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroPagamentoTipo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroRepasseDetran.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroRepasseDetranevento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroRepasseDetranretornoExecucaoErro.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroRepasseDetransituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoFinanceiroRepasseDetransituacaoArquivo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoGravidade.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoIdentificacaoInfratorCondutor.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoIdentificacaoInfratorCondutorArquivo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoIdentificacaoInfratorCondutorConferenciaEspecial.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoIdentificacaoInfratorCondutorEvento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoIdentificacaoInfratorCondutorFase.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoIdentificacaoInfratorCondutorIndicadorResultado.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoIdentificacaoInfratorCondutorMotivoInvalidacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoIdentificacaoInfratorCondutorOrigem.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoIdentificacaoInfratorCondutorSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoImagem.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoImagemTipo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoIndicadorResponsavel.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoInfrator.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoArquivoBaixa.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoArquivoBaixaSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoEdital.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoEditalArquivo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoEditalEvento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoEditalNotificacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoEditalNotificacaoExcecao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoEditalSituacaoArquivo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoEditalTipo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoExpedicao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoExpedicaoEvento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoExpedicaoFalha.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoExpedicaoFase.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoExpedicaoServico.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoExpedicaoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoExpedicaoTipo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoMidiaAr.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoRestricao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoRestricaoArquivo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoRestricaoEvento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoRestricaoPncvequipamento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoTipo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNotificacaoTipoGrupo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNumeroAuto.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNumeroAutoPrefixo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNumeroNotificacaoPenalidade.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNumeroProcessoBaixaManual.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNumeroProcessoDa.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNumeroProcessoDesvinculacaoMulta.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNumeroProcessoEfeitoSuspensivo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNumeroProcessoIdentificacaoInfratorCondutor.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNumeroProcessoRecurso.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoNumeroProcessoSolicitacaoAdvertencia.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoOrigem.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoOrigemContratacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoOrigemContrato.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoParametros.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoPesagem.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoPreAutuacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoPreAutuacaoAnalise.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoPreAutuacaoArbitragemResultado.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoPreAutuacaoClasseVeiculo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoPreAutuacaoConferenciaDupla.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoPreAutuacaoConferenciaSimplesPncv.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoPreAutuacaoConferenciaTipo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoPreAutuacaoFase.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoPreAutuacaoImagem.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoPreAutuacaoLavratura.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoPreAutuacaoMotivoInvalidacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoPreAutuacaoMotivoInvalidacaoGrupo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoPreAutuacaoPreparacaoImagem.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoPreAutuacaoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoProprietario.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoProprietarioEndereco.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoProtocoloAutomatico.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecurso.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoAlegacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoAlegacaoEnquadramento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoAnaliseJulgamentoJari.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoAnaliseJulgamentoJarievento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoAnaliseJulgamentoJarisituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoArquivo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoCausaNaoConhecer.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoEvento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoFase.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoFundamentacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoFundamentacaoEnquadramento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoIndicadorAdmissibilidade.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoIndicadorMerito.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoIndicadorRecorrente.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoIndicadorResultado.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoInstrucaoNaoConhecer.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoOrigem.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoRelatoNaoConhecer.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoRecursoTipo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoAdvertencia.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoAdvertenciaArquivo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoAdvertenciaCausaNaoConhecer.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoAdvertenciaEvento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoAdvertenciaFase.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoAdvertenciaFundamentacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoAdvertenciaIndicadorAdmissibilidade.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoAdvertenciaIndicadorMerito.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoAdvertenciaIndicadorRecorrente.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoAdvertenciaIndicadorResultado.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoAdvertenciaNaoConhecer.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoAdvertenciaOrigem.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoAdvertenciaSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoCancelamento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoCancelamentoArquivo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoCancelamentoEvento.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoCancelamentoInfracao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoCancelamentoMotivo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoCancelamentoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoSolicitacaoCancelamentoTipo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoTransportador.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoVeiculo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoVeiculoTipo.cs" />
+    <Compile Include="BD_SIOR\TblInfracaoVelocidadeValorConsiderado.cs" />
+    <Compile Include="BD_SIOR\TblJari.cs" />
+    <Compile Include="BD_SIOR\TblJariarquivo.cs" />
+    <Compile Include="BD_SIOR\TblJariintegrante.cs" />
+    <Compile Include="BD_SIOR\TblJariintegranteTipo.cs" />
+    <Compile Include="BD_SIOR\TblJariintegranteVinculo.cs" />
+    <Compile Include="BD_SIOR\TblJarisessaoJulgamento.cs" />
+    <Compile Include="BD_SIOR\TblJarisessaoJulgamentoArquivo.cs" />
+    <Compile Include="BD_SIOR\TblJarisessaoJulgamentoColegiado.cs" />
+    <Compile Include="BD_SIOR\TblJarisessaoJulgamentoEvento.cs" />
+    <Compile Include="BD_SIOR\TblJarisessaoJulgamentoPauta.cs" />
+    <Compile Include="BD_SIOR\TblJarisessaoJulgamentoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblJarisessaoJulgamentoVoto.cs" />
+    <Compile Include="BD_SIOR\TblPesagemEquipamento.cs" />
+    <Compile Include="BD_SIOR\TblPesagemEquipamentoBalancaTipo.cs" />
+    <Compile Include="BD_SIOR\TblPesagemPosto.cs" />
+    <Compile Include="BD_SIOR\TblPesagemPostoEquipamento.cs" />
+    <Compile Include="BD_SIOR\TblPncvagenteTransitoAtividadeDesempenhada.cs" />
+    <Compile Include="BD_SIOR\TblPncvagenteTransitoCredenciamento.cs" />
+    <Compile Include="BD_SIOR\TblPncvagenteTransitoCredenciamentoAtividadeDesempenhada.cs" />
+    <Compile Include="BD_SIOR\TblPncvagenteTransitoCredenciamentoEvento.cs" />
+    <Compile Include="BD_SIOR\TblPncvagenteTransitoCredenciamentoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvagenteTransitoIndicadorResultadoVerificacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvagenteTransitoIndicadorTipoSanguineo.cs" />
+    <Compile Include="BD_SIOR\TblPncvagenteTransitoSolicitacaoCredenciamento.cs" />
+    <Compile Include="BD_SIOR\TblPncvagenteTransitoSolicitacaoCredenciamentoArquivo.cs" />
+    <Compile Include="BD_SIOR\TblPncvagenteTransitoSolicitacaoCredenciamentoAtividadeDesempenhada.cs" />
+    <Compile Include="BD_SIOR\TblPncvagenteTransitoSolicitacaoCredenciamentoEvento.cs" />
+    <Compile Include="BD_SIOR\TblPncvagenteTransitoSolicitacaoCredenciamentoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvagenteTransitoSolicitacaoDescredenciamento.cs" />
+    <Compile Include="BD_SIOR\TblPncvagenteTransitoSolicitacaoDescredenciamentoArquivo.cs" />
+    <Compile Include="BD_SIOR\TblPncvagenteTransitoSolicitacaoDescredenciamentoEvento.cs" />
+    <Compile Include="BD_SIOR\TblPncvagenteTransitoSolicitacaoDescredenciamentoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvautorizacaoInstalacaoEquipamento.cs" />
+    <Compile Include="BD_SIOR\TblPncvautorizacaoInstalacaoEquipamentoEvento.cs" />
+    <Compile Include="BD_SIOR\TblPncvautorizacaoInstalacaoEquipamentoRemanejamento.cs" />
+    <Compile Include="BD_SIOR\TblPncvautorizacaoInstalacaoEquipamentoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvautorizacaoInstalacaoEquipamentoSubstituicao.cs" />
+    <Compile Include="BD_SIOR\TblPncvedital.cs" />
+    <Compile Include="BD_SIOR\TblPncveditalLote.cs" />
+    <Compile Include="BD_SIOR\TblPncveditalLoteAbrangencia.cs" />
+    <Compile Include="BD_SIOR\TblPncveditalObjeto.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamento.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoCodigo.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoEstudoTecnico.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoEstudoTecnicoArquivo.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoEstudoTecnicoFaixa.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoEvento.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoFaixa.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoFaixaParalisacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoFaixaParalisacaoEvento.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoFaixaParalisacaoMotivo.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoFaixaParalisacaoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoFaixaSituacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoFaixaVerificacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoFaixaVerificacaoEvento.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoFaixaVerificacaoPlaca.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoFaixaVerificacaoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoIndicadorCapturaImagem.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoIndicadorComunicacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoIndicadorInstalacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoIndicadorTecnologia.cs" />
+    <Compile Include="BD_SIOR\TblPncvequipamentoTipo.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoIndicadorClasseRodovia.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoIndicadorComparacaoVelocidade.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoIndicadorCondicaoPavimento.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoIndicadorDefensaMetalicaTerminal.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoIndicadorDispositivoSeguranca.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoIndicadorGeometriaVia.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoIndicadorNivelRisco.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoIndicadorRelevo.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoIndicadorSinalizacaoLadoRodovia.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoIndicadorTracadoVia.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoIndicadorTransito.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoTecnicoInstalacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoTecnicoInstalacaoAcidente.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoTecnicoInstalacaoCodigo.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoTecnicoInstalacaoEquipamento.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoTecnicoInstalacaoEvento.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoTecnicoInstalacaoFaixa.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoTecnicoInstalacaoFoto.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoTecnicoInstalacaoSinalizacaoVertical.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoTecnicoInstalacaoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoViabilidade.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoViabilidadeAcidente.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoViabilidadeCodigo.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoViabilidadeDocumento.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoViabilidadeEvento.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoViabilidadeFaixa.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoViabilidadeFoto.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoViabilidadeMotivacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoViabilidadeOrigem.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoViabilidadeResultado.cs" />
+    <Compile Include="BD_SIOR\TblPncvestudoViabilidadeSituacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvmarcaEquipamento.cs" />
+    <Compile Include="BD_SIOR\TblPncvmodeloEquipamento.cs" />
+    <Compile Include="BD_SIOR\TblPncvmodeloEquipamentoRegistroSanmft.cs" />
+    <Compile Include="BD_SIOR\TblPncvnotaInstalacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvnotaInstalacaoEquipamento.cs" />
+    <Compile Include="BD_SIOR\TblPncvoperadora.cs" />
+    <Compile Include="BD_SIOR\TblPncvparametros.cs" />
+    <Compile Include="BD_SIOR\TblPncvparametrosEditalLote.cs" />
+    <Compile Include="BD_SIOR\TblPncvsentidoRodovia.cs" />
+    <Compile Include="BD_SIOR\TblPncvsolicitacaoCancelamento.cs" />
+    <Compile Include="BD_SIOR\TblPncvsolicitacaoCancelamentoArquivo.cs" />
+    <Compile Include="BD_SIOR\TblPncvsolicitacaoCancelamentoEquipamento.cs" />
+    <Compile Include="BD_SIOR\TblPncvsolicitacaoCancelamentoEvento.cs" />
+    <Compile Include="BD_SIOR\TblPncvsolicitacaoCancelamentoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvsolicitacaoTransferenciaContrato.cs" />
+    <Compile Include="BD_SIOR\TblPncvsolicitacaoTransferenciaContratoArquivo.cs" />
+    <Compile Include="BD_SIOR\TblPncvsolicitacaoTransferenciaContratoEquipamento.cs" />
+    <Compile Include="BD_SIOR\TblPncvsolicitacaoTransferenciaContratoEvento.cs" />
+    <Compile Include="BD_SIOR\TblPncvsolicitacaoTransferenciaContratoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvtipoPlacaSinalizacao.cs" />
+    <Compile Include="BD_SIOR\TblPncvtipoVia.cs" />
+    <Compile Include="BD_SIOR\TblSegurancaAcidenteTransito.cs" />
+    <Compile Include="BD_SIOR\TblSegurancaAcidenteTransitoCausa.cs" />
+    <Compile Include="BD_SIOR\TblSegurancaAcidenteTransitoFonteDados.cs" />
+    <Compile Include="BD_SIOR\TblSegurancaAcidenteTransitoGravidade.cs" />
+    <Compile Include="BD_SIOR\TblSegurancaAcidenteTransitoSentido.cs" />
+    <Compile Include="BD_SIOR\TblSegurancaAcidenteTransitoTipo.cs" />
+    <Compile Include="BD_SIOR\TblSegurancaAcidenteTransitoUsoSolo.cs" />
+    <Compile Include="BD_SIOR\TblSegurancaClasseSegmentoRodovia.cs" />
+    <Compile Include="BD_SIOR\TblSegurancaSegmentoCritico.cs" />
+    <Compile Include="BD_SIOR\TblSegurancaSegmentoHomogeneo.cs" />
+    <Compile Include="BD_SIOR\TblSistemaAcao.cs" />
+    <Compile Include="BD_SIOR\TblSistemaArea.cs" />
+    <Compile Include="BD_SIOR\TblSistemaCatalogoConexao.cs" />
+    <Compile Include="BD_SIOR\TblSistemaCatalogoConexaoServico.cs" />
+    <Compile Include="BD_SIOR\TblSistemaConfiguracao.cs" />
+    <Compile Include="BD_SIOR\TblSistemaConfiguracaoPropriedadeTipo.cs" />
+    <Compile Include="BD_SIOR\TblSistemaControle.cs" />
+    <Compile Include="BD_SIOR\TblSistemaEvento.cs" />
+    <Compile Include="BD_SIOR\TblSistemaEventoTipo.cs" />
+    <Compile Include="BD_SIOR\TblSistemaInstituicao.cs" />
+    <Compile Include="BD_SIOR\TblSistemaInstituicaoTipo.cs" />
+    <Compile Include="BD_SIOR\TblSistemaMenu.cs" />
+    <Compile Include="BD_SIOR\TblSistemaPerfil.cs" />
+    <Compile Include="BD_SIOR\TblSistemaPerfilAcao.cs" />
+    <Compile Include="BD_SIOR\TblSistemaPerfilMenu.cs" />
+    <Compile Include="BD_SIOR\TblSistemaPerfilPerfil.cs" />
+    <Compile Include="BD_SIOR\TblSistemaSolicitacaoAcesso.cs" />
+    <Compile Include="BD_SIOR\TblSistemaSolicitacaoAcessoSituacao.cs" />
+    <Compile Include="BD_SIOR\TblSistemaSsrs.cs" />
+    <Compile Include="BD_SIOR\TblSistemaSsrsrelatorio.cs" />
+    <Compile Include="BD_SIOR\TblSistemaUsuario.cs" />
+    <Compile Include="BD_SIOR\TblSistemaUsuarioAcao.cs" />
+    <Compile Include="BD_SIOR\TblSistemaUsuarioBrlegalContrato.cs" />
+    <Compile Include="BD_SIOR\TblSistemaUsuarioEvento.cs" />
+    <Compile Include="BD_SIOR\TblSistemaUsuarioMenu.cs" />
+    <Compile Include="BD_SIOR\TblSistemaUsuarioPerfil.cs" />
+    <Compile Include="BD_SIOR\TblSistemaUsuarioPncvabrangencia.cs" />
+    <Compile Include="BD_SIOR\TblSistemaUsuarioPncveditalLote.cs" />
+    <Compile Include="BD_SIOR\TblSistemaUsuarioPncvindicadorVinculo.cs" />
+    <Compile Include="BD_SIOR\TblSnvtrecho.cs" />
+    <Compile Include="BD_SIOR\TblSnvtrechoCoincidente.cs" />
+    <Compile Include="BD_SIOR\TblSnvtrechoFonteDados.cs" />
+    <Compile Include="BD_SIOR\TblSnvtrechoHistorico.cs" />
+    <Compile Include="BD_SIOR\TblSnvtrechoOcupacao.cs" />
+    <Compile Include="BD_SIOR\TblSnvtrechoSuperficie.cs" />
+    <Compile Include="BD_SIOR\TblSnvtrechoTipo.cs" />
+    <Compile Include="BD_SIOR\TblTrafegoVelocidadeMediaHorario.cs" />
+    <Compile Include="BD_SIOR\TblTrafegoVelocidadeMediaSemanal.cs" />
+    <Compile Include="BD_SIOR\TblTrafegoVmdanual.cs" />
+    <Compile Include="BD_SIOR\TblTrafegoVmdanualClassificado.cs" />
+    <Compile Include="BD_SIOR\TblTrafegoVmdanualClassificadoClasseVeiculo.cs" />
+    <Compile Include="BD_SIOR\TblTrafegoVmdclasseVeiculo.cs" />
+    <Compile Include="BD_SIOR\TblTrafegoVmdfonteDados.cs" />
+    <Compile Include="BD_SIOR\TblTrafegoVmdhorario.cs" />
+    <Compile Include="BD_SIOR\TblTrafegoVmdhorarioClassificado.cs" />
+    <Compile Include="BD_SIOR\TblTrafegoVmdhorarioClassificadoClasseVeiculo.cs" />
+    <Compile Include="BD_SIOR\TblTrafegoVmdmensal.cs" />
+    <Compile Include="BD_SIOR\TblTrafegoVmdmensalClassificado.cs" />
+    <Compile Include="BD_SIOR\TblTrafegoVmdmensalClassificadoClasseVeiculo.cs" />
+    <Compile Include="BD_SIOR\TblTrafegoVmdsemanal.cs" />
+    <Compile Include="BD_SIOR\TblTrafegoVmdsemanalClassificado.cs" />
+    <Compile Include="BD_SIOR\TblTrafegoVmdsemanalClassificadoClasseVeiculo.cs" />
+    <Compile Include="Util\Metodos.cs" />
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Relatorios\Juridico.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Relatorios\PNCV.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Content Include="Relatorios\RecursosJari.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Relatorios\ResumoEquipamentos.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="GeradorRelatorios_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\GeradorRelatorios.DTO.Paralisacoes.datasource" />
+    <None Include="Properties\DataSources\GeradorRelatorios.DTO.RetornoExcessoPeso.datasource" />
+    <None Include="Properties\DataSources\GeradorRelatorios.DTO.RetornoPNVC.datasource" />
+    <None Include="Properties\DataSources\GeradorRelatorios.DTO.RetornoRecursosJari.datasource" />
+    <None Include="Properties\DataSources\GeradorRelatorios.DTO.RetornoResumoEquipamentos.datasource" />
+    <None Include="Properties\DataSources\TblRegistroContagem.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Microsoft.SqlServer.Types">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.EntityFrameworkCore.Design.2.2.3\build\net461\Microsoft.EntityFrameworkCore.Design.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.EntityFrameworkCore.Design.2.2.3\build\net461\Microsoft.EntityFrameworkCore.Design.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.2.2.6\build\netstandard2.0\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.2.2.6\build\netstandard2.0\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.2.2.6\build\netstandard2.0\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.targets" Condition="Exists('..\packages\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.2.2.6\build\netstandard2.0\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.targets')" />
+</Project>

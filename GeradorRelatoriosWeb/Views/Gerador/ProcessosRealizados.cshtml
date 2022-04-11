@@ -1,0 +1,104 @@
+﻿@model GeradorRelatoriosWeb.Models.Filtros.FiltroProcessosSIOR
+@{
+    ViewData["Title"] = "Processos Realizados";
+    Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+}
+<script src="~/js/Gerador/ProcessosSIOR.js"></script>
+<h1>Processos Realizados</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group panel">
+            <div class="panel-heading"><h4>Filtros</h4></div>
+            <div class="panel-body">
+                <form asp-action="ListarProcessosRealizados">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DataInicio" class="control-label"></label>
+                                <input asp-for="DataInicio" id="txtDataInicio" class="form-control" min="2000-01-01" />
+                                <span asp-validation-for="DataInicio" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DataFim" class="control-label"></label>
+                                <input asp-for="DataFim" id="txtDataFinal" class="form-control" min="2000-01-01" />
+                                <span asp-validation-for="DataFim" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="submit" id="btnVisualizar" value="Visualizar" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <div class="form-group">
+                                <input type="submit" id="btnExportar" asp-action="ExportarProcessosRealizados" value="Exportar XLS" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table table-condensed table-hover col-md-8">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcessosSIOR.FirstOrDefault().Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcessosSIOR.FirstOrDefault().FICI)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcessosSIOR.FirstOrDefault().FIRI)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcessosSIOR.FirstOrDefault().DA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcessosSIOR.FirstOrDefault().SA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcessosSIOR.FirstOrDefault().Recurso1instancia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcessosSIOR.FirstOrDefault().Recurso2instancia)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ProcessosSIOR)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FICI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FIRI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recurso1instancia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recurso2instancia)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

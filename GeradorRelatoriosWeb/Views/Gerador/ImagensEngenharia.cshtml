@@ -1,0 +1,107 @@
+﻿@model GeradorRelatoriosWeb.Models.Filtros.FiltroCompletoEngenharia
+@{
+    ViewData["Title"] = "Imagens Engenharia";
+    Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+}
+<script src="~/js/Gerador/CompletoEngenharia.js"></script>
+<h1>Imagens Engenharia</h1>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group panel">
+            <div class="panel-heading"><h4>Filtros</h4></div>
+            <div class="panel-body">
+                <form asp-action="ListarImagensEngenharia">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DataInicio" class="control-label"></label>
+                                <input asp-for="DataInicio" id="txtDataInicio" class="form-control" min="2000-01-01" />
+                                <span asp-validation-for="DataInicio" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DataFim" class="control-label"></label>
+                                <input asp-for="DataFim" id="txtDataFinal" class="form-control" min="2000-01-01" />
+                                <span asp-validation-for="DataFim" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="submit" id="btnVisualizar" value="Visualizar" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <div class="form-group">
+                                <input type="submit" id="btnExportar" asp-action="ExportarImagensEngenharia" value="Exportar XLS" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-condensed table-hover">
+            <thead>
+                <tr>
+                    
+                    <th>
+                        @Html.DisplayNameFor(model => model.ComplementoEngenhariaLista.FirstOrDefault().Contrato)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ComplementoEngenhariaLista.FirstOrDefault().EquipamentoAfericaoCodigoDnit)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ComplementoEngenhariaLista.FirstOrDefault().LocalInfracaoKm)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ComplementoEngenhariaLista.FirstOrDefault().LocalInfracaoRodovia)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ComplementoEngenhariaLista.FirstOrDefault().Municipio)
+                    </th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ComplementoEngenhariaLista)
+                {
+                    <tr>
+                        
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Contrato)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EquipamentoAfericaoCodigoDnit)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LocalInfracaoKm)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LocalInfracaoRodovia)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Municipio)
+                        </td>
+                        
+                    </tr>
+                    <tr id="group-of-rows-@item.Contrato" class="collapse">
+                        <td colspan="9">
+                            <span id="div-@item.Contrato"></span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

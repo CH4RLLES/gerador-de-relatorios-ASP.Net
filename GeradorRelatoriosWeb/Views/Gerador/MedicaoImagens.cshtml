@@ -1,0 +1,85 @@
+﻿@model GeradorRelatoriosWeb.Models.Filtros.FiltroValidasInvalidas
+@{
+    ViewData["Title"] = "Medição Imagens";
+    Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+}
+<script src="~/js/Gerador/MedicaoImagens.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<h1>Medição Imagens</h1>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group panel">
+            <div class="panel-heading"><h4>Filtros</h4></div>
+            <div class="panel-body">
+                <form asp-action="ListarMedicaoImagens">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DataInicio" class="control-label"></label>
+                                <input asp-for="DataInicio" id="txtDataInicio" class="form-control" min="2000-01-01" />
+                                <span asp-validation-for="DataInicio" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DataFim" class="control-label"></label>
+                                <input asp-for="DataFim" id="txtDataFinal" class="form-control" min="2000-01-01" />
+                                <span asp-validation-for="DataFim" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="submit" id="btnVisualizar" value="Visualizar" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <table class="table table-condensed table-hover">
+            <thead>
+                <tr class="total">
+                    <th>
+                        @Html.DisplayNameFor(model => model.ValidasInvalidas.FirstOrDefault().Data)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ValidasInvalidas.FirstOrDefault().Validos)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ValidasInvalidas.FirstOrDefault().Invalidos)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ValidasInvalidas)
+                {
+                    <tr class="linha">
+                        <td role="button">
+                            @Html.DisplayFor(modelItem => item.Data)
+                        </td>
+                        <td role="button">
+                            @Html.DisplayFor(modelItem => item.Validos)
+                        </td>
+                        <td role="button">
+                            @Html.DisplayFor(modelItem => item.Invalidos)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-9">
+        <input type="hidden" id="hdnValidas" value="@Model.ValidasInvalidas.Sum(a => int.Parse(a.Validos))" />
+        <input type="hidden" id="hdnInvalidas" value="@Model.ValidasInvalidas.Sum(a => int.Parse(a.Invalidos))" />
+        <div id="divGrafTotal" style="height: 400px"></div>
+    </div>
+</div>
+

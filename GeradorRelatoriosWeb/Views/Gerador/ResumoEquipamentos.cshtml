@@ -1,0 +1,119 @@
+﻿@model GeradorRelatoriosWeb.Models.Filtros.FiltroResumoEquipamentos
+@{
+    ViewData["Title"] = "Resumo Equipamentos";
+    Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+}
+<script src="~/js/Gerador/ResumoEquipamentos.js"></script>
+<h1>Resumo de Equipamentos</h1>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group panel">
+            <div class="panel-heading"><h4>Filtros</h4></div>
+            <div class="panel-body">
+                <form asp-action="ListarResumoEquipamentos">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Edital" class="control-label"></label>
+                                <select asp-items="@ViewBag.Editais" asp-for="Edital" name="Edital" class="form-control">
+                                    <option value="0">Todos</option>
+                                </select>
+                                <span asp-validation-for="Edital" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Situacao" class="control-label"></label>
+                                <select asp-items="@ViewBag.Situacoes" asp-for="Situacao" class="form-control">
+                                    <option value="0">Todos</option>
+                                </select>
+                                <span asp-validation-for="Situacao" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="submit" id="btnVisualizar" value="Visualizar" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <div class="form-group">
+                                <input type="submit" id="btnExportar" asp-action="ExportarResumoEquipamentos" value="Exportar XLS" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-condensed table-hover">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResumoEquipamentosLista.FirstOrDefault().CodigoEquipamentoDnit)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResumoEquipamentosLista.FirstOrDefault().UF)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResumoEquipamentosLista.FirstOrDefault().BR)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResumoEquipamentosLista.FirstOrDefault().Municipio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResumoEquipamentosLista.FirstOrDefault().TipoEquipamento)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResumoEquipamentosLista.FirstOrDefault().InicioOperacao)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResumoEquipamentosLista.FirstOrDefault().EditalLoteOperadora)
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ResumoEquipamentosLista)
+                {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodigoEquipamentoDnit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UF)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BR)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Municipio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoEquipamento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InicioOperacao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EditalLoteOperadora)
+                    </td>
+
+                </tr>
+                    
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,137 @@
+﻿@model GeradorRelatoriosWeb.Models.Filtros.FiltroRecursosJulgados
+@{
+    ViewData["Title"] = "Recursos Julgados";
+    Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+}
+<script src="~/js/Gerador/RecursosJulgados.js"></script>
+<h1>Recursos Julgados</h1>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group panel">
+            <div class="panel-heading"><h4>Filtros</h4></div>
+            <div class="panel-body">
+                <form asp-action="ListarRecursosJulgados">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Ano" class="control-label"></label>
+                                <select asp-items="@ViewBag.ComboAno" asp-for="Ano" name="Ano" class="form-control" ></select>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="submit" id="btnVisualizar" value="Visualizar" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <div class="form-group">
+                                <input type="submit" id="btnExportar" asp-action="ExportarRecursosJulgados" value="Exportar XLS" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoRecursosJulgados.FirstOrDefault().JARI)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoRecursosJulgados.FirstOrDefault().Janeiro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoRecursosJulgados.FirstOrDefault().Fevereiro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoRecursosJulgados.FirstOrDefault().Marco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoRecursosJulgados.FirstOrDefault().Abril)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoRecursosJulgados.FirstOrDefault().Maio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoRecursosJulgados.FirstOrDefault().Junho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoRecursosJulgados.FirstOrDefault().Julho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoRecursosJulgados.FirstOrDefault().Agosto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoRecursosJulgados.FirstOrDefault().Setembro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoRecursosJulgados.FirstOrDefault().Outubro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoRecursosJulgados.FirstOrDefault().Novembro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoRecursosJulgados.FirstOrDefault().Dezembro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoRecursosJulgados.FirstOrDefault().Total)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.RetornoRecursosJulgados.OrderBy(a => a.JARI))
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JARI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Janeiro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fevereiro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Abril)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Maio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Junho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Julho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Agosto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Setembro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Outubro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Novembro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dezembro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,134 @@
+﻿@model GeradorRelatoriosWeb.Models.Filtros.FiltroExcessoPeso
+@{
+    ViewData["Title"] = "Excesso de Peso";
+    Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+}
+<script src="~/js/Gerador/ExcessoPeso.js"></script>
+<h1>Excesso de Peso</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group panel">
+            <div class="panel-heading"><h4>Filtros</h4></div>
+            <div class="panel-body">
+                <form asp-action="ListarExcessoPeso">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DataInicio" class="control-label"></label>
+                                <input asp-for="DataInicio" id="txtDataInicio" class="form-control" min="2000-01-01" />
+                                <span asp-validation-for="DataInicio" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DataFim" class="control-label"></label>
+                                <input asp-for="DataFim" id="txtDataFinal" class="form-control" min="2000-01-01" />
+                                <span asp-validation-for="DataFim" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="CNPJ" class="control-label"></label>
+                                <input asp-for="CNPJ" id="txtCNPJ" class="form-control" required oninvalid="this.setCustomValidity('Preencher com a raíz ou o CNPJ completo')" oninput="this.setCustomValidity('')" />
+                                <span asp-validation-for="CNPJ" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="submit" id="btnVisualizar" value="Visualizar" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <div class="form-group">
+                                <input type="submit" id="btnExportar" asp-action="ExportarExcessoPeso" value="Exportar XLS" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-condensed table-hover">
+            <thead>
+                <tr>
+                    <td>
+                        
+                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ExcessoPesoLista.FirstOrDefault().NumeroAIT)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ExcessoPesoLista.FirstOrDefault().DataInfracao)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ExcessoPesoLista.FirstOrDefault().SituacaoAIT)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ExcessoPesoLista.FirstOrDefault().PlacaVeiculo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ExcessoPesoLista.FirstOrDefault().Infrator)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ExcessoPesoLista.FirstOrDefault().Proprietario)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ExcessoPesoLista.FirstOrDefault().Embarcador)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ExcessoPesoLista.FirstOrDefault().Transportador)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ExcessoPesoLista)
+                {
+                    <tr>
+                        <td>
+                            <span class="fa fa-plus-square-o clickable" style="color:gray" data-id="@item.NumeroAIT" data-toggle="collapse" data-target="#group-of-rows-@item.NumeroAIT" role="button" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NumeroAIT)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataInfracao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SituacaoAIT)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PlacaVeiculo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Infrator)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Proprietario)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Embarcador)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Transportador)
+                        </td>
+                    </tr>
+                    <tr id="group-of-rows-@item.NumeroAIT" class="collapse">
+                        <td colspan="9">
+                            <span id="div-@item.NumeroAIT"></span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

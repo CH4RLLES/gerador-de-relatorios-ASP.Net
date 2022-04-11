@@ -1,0 +1,94 @@
+﻿@model GeradorRelatoriosWeb.Models.Cadastros.Filtros.FiltroPaginasAcesso
+
+@{
+    ViewData["Title"] = "Cadastro de Páginas";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Cadastro de Páginas</h1>
+
+<h4>Páginas de Acesso</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CadPaginas">
+            @if (TempData["Messagem"] != null)
+            {
+                <p class="alert alert-info">@TempData["Messagem"]</p>
+            }
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomeMenu" class="control-label"></label>
+                <input asp-for="NomeMenu" class="form-control" />
+                <span asp-validation-for="NomeMenu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Controller" class="control-label"></label>
+                <input asp-for="Controller" class="form-control" />
+                <span asp-validation-for="Controller" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="View" class="control-label"></label>
+                <input asp-for="View" class="form-control" />
+                <span asp-validation-for="View" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Desativado" /> @Html.DisplayNameFor(model => model.Desativado)
+                </label>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PaginasAcessoLista.FirstOrDefault().NomeMenu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaginasAcessoLista.FirstOrDefault().Controller)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaginasAcessoLista.FirstOrDefault().View)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaginasAcessoLista.FirstOrDefault().Desativado)
+            </th>
+            <th>
+
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PaginasAcessoLista)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeMenu)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Controller)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.View)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desativado)
+            </td>
+            <td>
+                <a asp-controller="Admin" asp-action="BuscarCadPaginas" asp-route-id="@item.Id" class="fa fa-pencil"></a>
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+

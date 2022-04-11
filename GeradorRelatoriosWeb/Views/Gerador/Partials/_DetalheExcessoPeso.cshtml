@@ -1,0 +1,373 @@
+﻿@model GeradorRelatoriosWeb.Dominio.Models.RetornoExcessoPeso
+
+<div>
+    <h4>Detalhe Excesso de Peso</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group panel">
+                <div class="panel-heading"><h4>Dados da Infração</h4></div>
+                <div class="panel-body">
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.NumeroAIT)
+                        </dt>
+                        <dd class="col-sm-1">
+                            @Html.DisplayFor(model => model.NumeroAIT)
+                        </dd>
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.DataInfracao)
+                        </dt>
+                        <dd class="col-sm-5">
+                            @Html.DisplayFor(model => model.DataInfracao)
+                        </dd>
+
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.DataExpNA)
+                        </dt>
+                        <dd class="col-sm-1">
+                            @Html.DisplayFor(model => model.DataExpNA)
+                        </dd>
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.DataExpNP)
+                        </dt>
+                        <dd class="col-sm-5">
+                            @Html.DisplayFor(model => model.DataExpNP)
+                        </dd>
+
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.SituacaoAIT)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.SituacaoAIT)
+                        </dd>
+
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.RodoviaKmLocalInfracao)
+                        </dt>
+                        <dd class="col-sm-2">
+                            @Html.DisplayFor(model => model.RodoviaKmLocalInfracao)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Municipio)
+                        </dt>
+                        <dd class="col-sm-3">
+                            @Html.DisplayFor(model => model.Municipio)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.PlacaVeiculo)
+                        </dt>
+                        <dd class="col-sm-1">
+                            @Html.DisplayFor(model => model.PlacaVeiculo)
+                        </dd>
+
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Enquadramento)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Enquadramento)
+                        </dd>
+
+                    </dl>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group panel">
+                <div class="panel-heading"><h4>Dados Financeiros</h4></div>
+                <div class="panel-body">
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.ValorPrincipal)
+                        </dt>
+                        <dd class="col-sm-1">
+                            @Html.DisplayFor(model => model.ValorPrincipal)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.ValorPago)
+                        </dt>
+                        <dd class="col-sm-7">
+                            @Html.DisplayFor(model => model.ValorPago)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.SituacaoDebito)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.SituacaoDebito)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.NotasFiscais)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.NotasFiscais)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group panel">
+                <div class="panel-heading"><h4>Dados Infrator</h4></div>
+                <div class="panel-body">
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Infrator)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Infrator)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Proprietario)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Proprietario)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Embarcador)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Embarcador)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Transportador)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Transportador)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group panel">
+                <div class="panel-heading"><h4>Medições</h4></div>
+                <div class="panel-body">
+                    <table class="table table-condensed table-hover">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <th>
+                                    RENAINF
+                                </th>
+                                <th>
+                                    PBT
+                                </th>
+                                <th>
+                                    Eixo 1
+                                </th>
+                                <th>
+                                    Eixo 2
+                                </th>
+                                <th>
+                                    Eixo 3
+                                </th>
+                                <th>
+                                    Eixo 4
+                                </th>
+                                <th>
+                                    Eixo 5
+                                </th>
+                                <th>
+                                    Eixo 6
+                                </th>
+                                <th>
+                                    Eixo 7
+                                </th>
+                                <th>
+                                    CMT
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>
+                                    Medição Realizada
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaRegistroRENAINF)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaPBT)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaEixo1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaEixo2)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaEixo3)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaEixo4)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaEixo5)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaEixo6)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaEixo7)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaCMT)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Limite Regulamentado
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.LimiteRegulamentadoRegistroRENAINF)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.LimiteRegulamentarComToleranciaPBT)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.LimiteRegulamentarComToleranciaEixo1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.LimiteRegulamentarComToleranciaEixo2)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.LimiteRegulamentarComToleranciaEixo3)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.LimiteRegulamentarComToleranciaEixo4)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.LimiteRegulamentarComToleranciaEixo5)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.LimiteRegulamentarComToleranciaEixo6)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.LimiteRegulamentarComToleranciaEixo7)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.LimiteRegulamentarComToleranciaCMT)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Valor Considerado/Medição Realizada
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(model => model.ValorConsideradoRegistroRENAINF)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaPBT)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaEixo1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaEixo2)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaEixo3)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaEixo4)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaEixo5)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaEixo6)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaEixo7)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MedicaoRealizadaCMT)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Excesso Aferido
+                                </th>
+                                <td>
+                                    -
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ExcessoAferidoPBT)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ExcessoAferidoEixo1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ExcessoAferidoEixo2)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ExcessoAferidoEixo3)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ExcessoAferidoEixo4)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ExcessoAferidoEixo5)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ExcessoAferidoEixo6)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ExcessoAferidoEixo7)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ExcessoAferidoCMT)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Tolerância
+                                </th>
+                                <td>
+                                    -
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ToleranciaPBT)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ToleranciaEixo1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ToleranciaEixo2)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ToleranciaEixo3)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ToleranciaEixo4)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ToleranciaEixo5)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ToleranciaEixo6)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ToleranciaEixo7)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ToleranciaCMT)
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

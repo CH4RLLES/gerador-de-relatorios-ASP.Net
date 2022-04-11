@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20190709153224_perfilacesso.cs" />
+    <Compile Remove="Migrations\20190709153545_perfilacesso.cs" />
+    <Compile Remove="Migrations\20190724143432_PerfilPaginas.cs" />
+    <Compile Remove="Migrations\20190725115547_PerfilPaginas.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GeoAPI.Core" Version="1.7.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite" Version="2.2.6" />
+    <PackageReference Include="NetTopologySuite.Core" Version="1.15.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GeradorRelatoriosWeb.Dominio\GeradorRelatoriosWeb.Dominio.csproj" />
+  </ItemGroup>
+
+</Project>

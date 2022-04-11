@@ -1,0 +1,15 @@
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Servicos\bin\Release\netcoreapp2.2\GeradorRelatoriosWeb.Servicos.deps.json
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Servicos\bin\Release\netcoreapp2.2\GeradorRelatoriosWeb.Servicos.dll
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Servicos\bin\Release\netcoreapp2.2\GeradorRelatoriosWeb.Servicos.pdb
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Servicos\bin\Release\netcoreapp2.2\GeradorRelatoriosWeb.Dominio.dll
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Servicos\bin\Release\netcoreapp2.2\GeradorRelatoriosWeb.Infra.Dados.dll
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Servicos\bin\Release\netcoreapp2.2\GeradorRelatoriosWeb.Dominio.pdb
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Servicos\bin\Release\netcoreapp2.2\GeradorRelatoriosWeb.Infra.Dados.pdb
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Servicos\obj\Release\netcoreapp2.2\GeradorRelatoriosWeb.Servicos.csprojAssemblyReference.cache
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Servicos\obj\Release\netcoreapp2.2\GeradorRelatoriosWeb.Servicos.csproj.CoreCompileInputs.cache
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Servicos\obj\Release\netcoreapp2.2\EFCoreSqlServerNetTopologySuite.cs
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Servicos\obj\Release\netcoreapp2.2\GeradorRelatoriosWeb.Servicos.AssemblyInfoInputs.cache
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Servicos\obj\Release\netcoreapp2.2\GeradorRelatoriosWeb.Servicos.AssemblyInfo.cs
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Servicos\obj\Release\netcoreapp2.2\GeradorRelatoriosWeb.Servicos.csproj.CopyComplete
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Servicos\obj\Release\netcoreapp2.2\GeradorRelatoriosWeb.Servicos.dll
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Servicos\obj\Release\netcoreapp2.2\GeradorRelatoriosWeb.Servicos.pdb

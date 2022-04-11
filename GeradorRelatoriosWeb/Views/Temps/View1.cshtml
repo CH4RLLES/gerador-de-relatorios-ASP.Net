@@ -1,0 +1,71 @@
+﻿@model IEnumerable<GeradorRelatoriosWeb.Dominio.Models.RetornoExcessoPesoLista>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroAIT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataInfracao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SituacaoAIT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlacaVeiculo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Infrator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proprietario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Embarcador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transportador)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroAIT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataInfracao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SituacaoAIT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlacaVeiculo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Infrator)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proprietario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Embarcador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transportador)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

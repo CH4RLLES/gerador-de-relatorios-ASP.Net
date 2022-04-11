@@ -1,0 +1,98 @@
+﻿@model GeradorRelatoriosWeb.Models.Filtros.FiltroValoresRecolhidos
+@{
+    ViewData["Title"] = "Valores Recebidos";
+    Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+}
+<script src="~/js/Gerador/ValoresRecolhidos.js"></script>
+<h1>Valores Recolhidos</h1>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group panel">
+            <div class="panel-heading"><h4>Filtros</h4></div>
+            <div class="panel-body">
+                <form asp-action="ListarValoresRecolhidos">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DataInicio" class="control-label"></label>
+                                <input asp-for="DataInicio" id="txtDataInicio" class="form-control" min="2000-01-01" />
+                                <span asp-validation-for="DataInicio" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DataFim" class="control-label"></label>
+                                <input asp-for="DataFim" id="txtDataFinal" class="form-control" min="2000-01-01" />
+                                <span asp-validation-for="DataFim" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="submit" id="btnVisualizar" value="Visualizar" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <div class="form-group">
+                                <input type="submit" id="btnExportar" asp-action="ExportarValoresRecolhidos" value="Exportar XLS" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoValoresRecolhidos.FirstOrDefault().IdentificacaoRepasse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoValoresRecolhidos.FirstOrDefault().DataRepasse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoValoresRecolhidos.FirstOrDefault().FUNSET)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoValoresRecolhidos.FirstOrDefault().DETRAN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoValoresRecolhidos.FirstOrDefault().DENATRAN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoValoresRecolhidos.FirstOrDefault().OrgaoAutuador)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.RetornoValoresRecolhidos)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdentificacaoRepasse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataRepasse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FUNSET)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DETRAN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DENATRAN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrgaoAutuador)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

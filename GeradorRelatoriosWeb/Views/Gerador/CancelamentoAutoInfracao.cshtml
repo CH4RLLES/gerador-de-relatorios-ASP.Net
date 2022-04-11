@@ -1,0 +1,97 @@
+﻿@model GeradorRelatoriosWeb.Models.Filtros.FiltroCancelamentoAutoInfracao
+@{
+    ViewData["Title"] = "Cancelamentos dos Autos Infração";
+    Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+}
+<script src="~/js/Gerador/CancelamentoAutoInfracao.js"></script>
+<h1>Cancelamentos dos Autos Infração</h1>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group panel">
+            <div class="panel-heading"><h4>Filtros</h4></div>
+            <div class="panel-body">
+                <form asp-action="ListarCancelamentoAutoInfracao">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DataInicio" class="control-label"></label>
+                                <input asp-for="DataInicio" id="txtDataInicio" class="form-control" min="2000-01-01" />
+                                <span asp-validation-for="DataInicio" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DataFim" class="control-label"></label>
+                                <input asp-for="DataFim" id="txtDataFinal" class="form-control" min="2000-01-01" />
+                                <span asp-validation-for="DataFim" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="submit" id="btnVisualizar" value="Visualizar" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <div class="form-group">
+                                <input type="submit" id="btnExportar" asp-action="ExportarCancelamentoAutoInfracao" value="Exportar XLS" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoCancelamentoAutoInfracao.FirstOrDefault().Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoCancelamentoAutoInfracao.FirstOrDefault().QtdAutosCancelados)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoCancelamentoAutoInfracao.FirstOrDefault().ValorAutosCancelados)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoCancelamentoAutoInfracao.FirstOrDefault().MotivoAutosCancelados)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoCancelamentoAutoInfracao.FirstOrDefault().NumeroSolicitacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetornoCancelamentoAutoInfracao.FirstOrDefault().Situacao)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.RetornoCancelamentoAutoInfracao)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QtdAutosCancelados)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValorAutosCancelados)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MotivoAutosCancelados)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroSolicitacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Situacao)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

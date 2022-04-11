@@ -1,0 +1,12 @@
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Dominio\bin\Debug\netcoreapp2.2\GeradorRelatoriosWeb.Dominio.deps.json
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Dominio\bin\Debug\netcoreapp2.2\GeradorRelatoriosWeb.Dominio.runtimeconfig.json
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Dominio\bin\Debug\netcoreapp2.2\GeradorRelatoriosWeb.Dominio.runtimeconfig.dev.json
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Dominio\bin\Debug\netcoreapp2.2\GeradorRelatoriosWeb.Dominio.dll
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Dominio\bin\Debug\netcoreapp2.2\GeradorRelatoriosWeb.Dominio.pdb
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Dominio\obj\Debug\netcoreapp2.2\GeradorRelatoriosWeb.Dominio.csprojAssemblyReference.cache
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Dominio\obj\Debug\netcoreapp2.2\EFCoreSqlServerNetTopologySuite.cs
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Dominio\obj\Debug\netcoreapp2.2\GeradorRelatoriosWeb.Dominio.AssemblyInfoInputs.cache
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Dominio\obj\Debug\netcoreapp2.2\GeradorRelatoriosWeb.Dominio.AssemblyInfo.cs
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Dominio\obj\Debug\netcoreapp2.2\GeradorRelatoriosWeb.Dominio.dll
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Dominio\obj\Debug\netcoreapp2.2\GeradorRelatoriosWeb.Dominio.pdb
+D:\Source\Repos\gerador\GeradorRelatoriosWeb.Dominio\obj\Debug\netcoreapp2.2\GeradorRelatoriosWeb.Dominio.csproj.CoreCompileInputs.cache

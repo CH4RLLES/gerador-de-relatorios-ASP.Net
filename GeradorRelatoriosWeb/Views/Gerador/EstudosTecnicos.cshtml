@@ -1,0 +1,77 @@
+﻿@model GeradorRelatoriosWeb.Dominio.Models.RetornoEstudosTecnicos
+@{
+    ViewData["Title"] = "Estudos Técnicos";
+    Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+}
+<script src="~/js/Gerador/DemandaET.js"></script>
+<h1>Estudos Técnicos</h1>
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="ListarEstudosTecnicos">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="submit" id="btnVisualizar" value="Visualizar" class="btn btn-primary" />
+                    </div>
+                </div>
+                <div class="col-md-6 text-right">
+                    <div class="form-group">
+                        <input type="submit" id="btnExportar" asp-action="ExportarEstudosTecnicos" value="Exportar XLS" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<table class="table table-condensed table-hover col-md-12">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaEstudosTecnicos.FirstOrDefault().CodigoDeIdentificação)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaEstudosTecnicos.FirstOrDefault().SituacaoET)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaEstudosTecnicos.FirstOrDefault().CodigoEV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaEstudosTecnicos.FirstOrDefault().SituacaoEV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListaEstudosTecnicos.FirstOrDefault().CodigoDeEquipamento)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.ListaEstudosTecnicos.FirstOrDefault().SituacaoEQ)
+            </th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ListaEstudosTecnicos)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodigoDeIdentificação)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SituacaoET)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodigoEV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SituacaoEV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodigoDeEquipamento)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.SituacaoEQ)
+                </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+
